@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--dao接口的实现  -->
+<!-- namespace 当前的配置文件是哪一个dao -->
+<mapper namespace="com.javasm.student.dao.StudentDAO">
+	<!--select 代表查询id与dao中的方法名一致 -->
+	<!-- resultType 返回值类型  如果是集合 写集合的泛型如StudentModel而不是List model类的属性 必须与数据库的属性名保持一致-->
+	<select id="SelectStudentList" resultType="com.javasm.student.model.StudentModel">
+		select * from t_student
+	</select>
+</mapper>
