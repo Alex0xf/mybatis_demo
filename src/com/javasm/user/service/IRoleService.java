@@ -13,4 +13,6 @@ import com.javasm.user.model.AdminRoleModel;
  */
 public interface IRoleService {
 	List<AdminRoleModel> selectAdminRoleWitcUser();
+	
+	List<AdminRoleModel> selectUserListMybatis();
 }

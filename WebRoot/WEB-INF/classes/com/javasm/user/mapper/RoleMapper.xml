@@ -8,8 +8,24 @@
 		<result column="ctime" property="ctime"/>
 	</resultMap>
 	
+	<resultMap type="com.javasm.user.model.AdminRoleModel" 
+	id="roleManyResultType" extends="roleResultMap">
+		<!-- 一对多 -->
+		<!-- property AdminRoleModel 里的属性名 集合 -->
+		<!-- ofType集合泛型的类型 -->
+		<!-- select多的列表查询调用哪一个select标签 column以哪一列作为参数传进去 -->
+		<collection property="userList" ofType="AdminUserModel"
+		select="com.javasm.user.dao.IUserDAO.selectUserListByRid"
+		column="rid">
+		</collection>
+	</resultMap>
+	
 	<!-- 无传参 返回类型是一个role对象-->
 	<select id="selectAdminRoleWitcUser" resultMap="roleResultMap">
+		select * from t_admin_role
+	</select>
+	
+	 <select id="selectUserListMybatis" resultMap="roleManyResultType"> 
 		select * from t_admin_role
 	</select>
 </mapper>

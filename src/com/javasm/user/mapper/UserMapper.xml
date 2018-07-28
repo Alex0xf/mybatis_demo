@@ -23,4 +23,8 @@
 		SELECT u.uid,u.`name`,u.`password`,r.role_name,r.ctime 
 		from t_admin_user AS u,t_admin_role AS r WHERE u.role_id=r.rid
 	</select>
+	
+	<select id="selectUserListByRid" resultMap="userResultMap">
+		SELECT * FROM t_admin_user AS u where u.role_id=#{rid}
+	</select>
 </mapper>

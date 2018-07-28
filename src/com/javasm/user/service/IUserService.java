@@ -12,4 +12,5 @@ import com.javasm.user.model.AdminUserRoleModel;
  */
 public interface IUserService {
 	List<AdminUserRoleModel> selectUserListWithRole();
+
 }

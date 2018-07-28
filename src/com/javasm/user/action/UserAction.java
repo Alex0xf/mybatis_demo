@@ -15,7 +15,7 @@ import com.javasm.user.service.impl.UserServiceImpl;
 public class UserAction {
 	
 	private static IUserService userService=new UserServiceImpl();
-	//测试不同的关系 一对一一对多 多对一 多对多
+	//测试不同的关系 一对一 多对
 	public static void main(String[] args) {
 		List<AdminUserRoleModel> list=userService.selectUserListWithRole();
 		System.out.println(list);

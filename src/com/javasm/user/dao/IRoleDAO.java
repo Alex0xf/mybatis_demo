@@ -6,4 +6,6 @@ import com.javasm.user.model.AdminRoleModel;
 
 public interface IRoleDAO {
 	List<AdminRoleModel> selectAdminRoleWitcUser();
+	
+	List<AdminRoleModel> selectUserListMybatis();
 }
