@@ -39,6 +39,8 @@
 	<mappers>
 		<mapper resource="com/javasm/student/mapper/StudentMapper.xml"/>
 		<mapper resource="com/javasm/book/mapper/BookMapper.xml"/>
+		<mapper resource="com/javasm/user/mapper/UserMapper.xml"/>
+		<mapper resource="com/javasm/user/mapper/RoleMapper.xml"/>
 	</mappers>
 	
 </configuration>

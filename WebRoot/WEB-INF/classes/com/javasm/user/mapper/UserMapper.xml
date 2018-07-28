@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.user.dao.IUserDAO">
+	<resultMap type="com.javasm.user.model.AdminUserModel" id="userResultMap">
+		<id column="uid" property="uid"/>
+		<result column="name" property="name"/>
+		<result column="password" property="password"/>
+		<result column="role_id" property="rid"/>
+	</resultMap>
+	
+
+	<resultMap type="com.javasm.user.model.AdminUserRoleModel" extends="userResultMap" 
+	id="userRoleResultMap">
+		<!--继承过来的 没有具体的属性名 有一个类 类里面的属性对应上面写的resultmap id="roleResultMap"  -->
+		<!-- 一对一 或者  多对一 -->
+		<association property="role" javaType="com.javasm.user.model.AdminRoleModel" 
+		resultMap="com.javasm.user.dao.IRoleDAO.roleResultMap">
+		<!-- resultMap的寻找方式 找到namespace下名为com.javasm.user.dao.IRoleDAO的resultMap下id=roleResultMap的那个 -->
+		</association>
+	</resultMap>
+	
+	<select id="selectUserListWithRole" resultMap="userRoleResultMap">
+		SELECT u.uid,u.`name`,u.`password`,r.role_name,r.ctime 
+		from t_admin_user AS u,t_admin_role AS r WHERE u.role_id=r.rid
+	</select>
+</mapper>

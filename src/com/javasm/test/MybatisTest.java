@@ -22,8 +22,9 @@ public class MybatisTest {
 	public static void main(String[] args) {
 		//test01();
 		test02();
-		
 	}
+	
+	//测试mapper来写sql的增删改查
 	public static void test02(){
 		List<BookModel> bookList=bookService.selectBookList();
 		System.out.println("----------"+bookList);
@@ -39,6 +40,8 @@ public class MybatisTest {
 		
 		
 	}
+	
+	//测试基本mybatis-config.xml mapper.xml 查数据
 	public static void test01(){
 		List<StudentModel> studentList = studentService.selectStudentList();
 		StudentModel student2 = studentService.selectStudentById(226);

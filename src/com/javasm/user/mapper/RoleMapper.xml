@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.user.dao.IRoleDAO">
+	<!-- 结果是角色的 -->
+	<resultMap type="com.javasm.user.model.AdminRoleModel" id="roleResultMap">
+		<id column="rid" property="rid"/>
+		<result column="role_name" property="rname"/>
+		<result column="ctime" property="ctime"/>
+	</resultMap>
+	
+	<!-- 无传参 返回类型是一个role对象-->
+	<select id="selectAdminRoleWitcUser" resultMap="roleResultMap">
+		select * from t_admin_role
+	</select>
+</mapper>
