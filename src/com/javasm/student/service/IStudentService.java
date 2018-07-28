@@ -18,6 +18,9 @@ public interface IStudentService {
 
 	// 查询学生信息
 	StudentModel selectStudentById(Integer id);
+	StudentModel selectStudentById(StudentModel student);
+	
+	StudentModel selectStudentById2(StudentModel student);
 	
 	StudentModel selectStudentByObject(StudentModel student);
 	

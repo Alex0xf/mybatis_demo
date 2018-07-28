@@ -1,4 +1,4 @@
-package com.javasm.student.Utills;
+package com.javasm.utills;
 
 import java.io.IOException;
 import java.io.Reader;

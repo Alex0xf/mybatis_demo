@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javasm.book.dao.IBookDAO">
+	<resultMap type="com.javasm.book.model.BookModel" id="bookResultMap">
+		<!-- column对应的是 查询结果集的列名 -->
+		<!-- property 对应的是model属性名 -->
+		<id property="bid" column="bid"/>
+		<result property="bookId" column="book_id"/>
+		<result property="bookName" column="book_name"/>
+		<result property="readCount" column="read_count"/>
+	</resultMap>
+	
+	<!-- selectBookList没有传参所以不写 参数类型parameterType ResultMap和ResultType不能共存-->
+	<select id="selectBookList" resultMap="bookResultMap">
+		select * from pn_book order by bid desc limit 5 
+	</select>
+	
+	<!-- 插入一条记录 无返回值类型不写ResultType  -->
+	<insert id="insertBookModel" parameterType="com.javasm.book.model.BookModel">
+		insert into pn_book (book_id,book_name,read_count) values (#{bookId},#{bookName},#{readCount})
+	</insert>
+	
+	<!-- 删除一条记录 -->
+	<insert id="deleteBookModel" parameterType="java.lang.Long">
+		delete from pn_book where bid = #{id}
+	</insert>
+	
+	<!-- 修改一条记录 -->
+	<update id="updateBookModel" parameterType="com.javasm.book.model.BookModel">
+		update pn_book set book_id=#{bookId}, book_name=#{bookName} where bid = #{bid}
+	</update>
+
+</mapper>

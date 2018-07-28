@@ -6,7 +6,11 @@
 	<!-- 加载配置文件的一些设置 -->
 	<settings>
 	<!-- 默认启用懒（延迟）加载 -->
-	    <!-- 日志 -->
+	    <!-- 打开延迟加载的开关 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- 将积极加载改为消极加载，即延迟加载 -->
+        <setting name="aggressiveLazyLoading" value="false"/>     
+	    <!-- 日志美化 -->
 		<setting name="logImpl" value="STDOUT_LOGGING"/>
 		<!-- 对所有的cache进行全局性开/关设置 -->
 		<setting name="cacheEnabled" value="true"/>
@@ -34,5 +38,7 @@
 	<!-- mapper配置文件的映射关系 -->
 	<mappers>
 		<mapper resource="com/javasm/student/mapper/StudentMapper.xml"/>
+		<mapper resource="com/javasm/book/mapper/BookMapper.xml"/>
 	</mappers>
+	
 </configuration>

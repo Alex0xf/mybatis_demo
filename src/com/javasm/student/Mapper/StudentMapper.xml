@@ -2,13 +2,17 @@
 <!--dao接口的实现  -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace 当前的配置文件是哪一个dao -->
-<mapper namespace="com.javasm.student.dao.StudentDAO">
+<mapper namespace="com.javasm.student.dao.IStudentDAO">
 	<!--select代表查询   id与dao中的方法名一致 -->
 	<!-- resultType 返回值类型  如果是集合 写集合的泛型如StudentModel而不是List model类的属性 必须与数据库的属性名保持一致-->
 	<select id="selectStudentList" resultType="com.javasm.student.model.StudentModel">
 		select * from t_student
 	</select>
-	<select id="selectStudentById" parameterType="int" resultType="com.javasm.student.model.StudentModel">
+	<!-- <select id="selectStudentById" parameterType="java.lang.Integer" resultType="com.javasm.student.model.StudentModel"> -->
+	<select id="selectStudentById" parameterType="java.lang.Object" resultType="com.javasm.student.model.StudentModel">
+		select * from t_student where id = #{id}
+	</select>
+	<select id="selectStudentById2" parameterType="com.javasm.student.model.StudentModel" resultType="com.javasm.student.model.StudentModel">
 		select * from t_student where id = #{id}
 	</select>
 	<!--#代表预编译对象ps $代表statement 传入参数是一个MODEL对象 它会自动找对应的属性值 -->
