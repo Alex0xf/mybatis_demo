@@ -8,8 +8,8 @@
 	<!-- 默认启用懒（延迟）加载 -->
 	    <!-- 打开延迟加载的开关 -->
         <setting name="lazyLoadingEnabled" value="true"/>
-        <!-- 将积极加载改为消极加载，即延迟加载 -->
-        <setting name="aggressiveLazyLoading" value="false"/>     
+        <!-- 将积极加载改为消极加载 -->
+     <!--    <setting name="aggressiveLazyLoading" value="false"/>      -->
 	    <!-- 日志美化 -->
 		<setting name="logImpl" value="STDOUT_LOGGING"/>
 		<!-- 对所有的cache进行全局性开/关设置 -->
@@ -41,6 +41,7 @@
 		<mapper resource="com/javasm/book/mapper/BookMapper.xml"/>
 		<mapper resource="com/javasm/user/mapper/UserMapper.xml"/>
 		<mapper resource="com/javasm/user/mapper/RoleMapper.xml"/>
+		<mapper resource="com/javasm/user/mapper/MenuMapper.xml"/>
 	</mappers>
 	
 </configuration>

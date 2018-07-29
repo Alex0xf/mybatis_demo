@@ -17,12 +17,14 @@ public class AdminRoleModel {
 	
 	//角色下 有一堆用户 一个角色对应多个用户 一对多
 	private List<AdminUserModel> userList;
+	//菜单集合
+	private List<AdminMenuModel> menuList;	
 	
 	@Override
 	public String toString() {
-		return "AdminRoleModel [rid=" + rid + ", rname=" + rname + ", ctime=" + ctime + ", userList=" + userList + "]";
+		return "AdminRoleModel [rid=" + rid + ", rname=" + rname + ", ctime=" + ctime + ", userList=" + userList
+				+ ", menuList=" + menuList + "]";
 	}
-	
 	public List<AdminUserModel> getUserList() {
 		return userList;
 	}
@@ -47,5 +49,14 @@ public class AdminRoleModel {
 	public void setCtime(Date ctime) {
 		this.ctime = ctime;
 	}
+
+	public List<AdminMenuModel> getMenuList() {
+		return menuList;
+	}
+
+	public void setMenuList(List<AdminMenuModel> menuList) {
+		this.menuList = menuList;
+	}
+	
 	
 }

@@ -10,21 +10,28 @@
 	
 	<resultMap type="com.javasm.user.model.AdminRoleModel" 
 	id="roleManyResultType" extends="roleResultMap">
-		<!-- 一对多 -->
+		<!-- 一对多 一个角色对应多个用户-->
 		<!-- property AdminRoleModel 里的属性名 集合 -->
 		<!-- ofType集合泛型的类型 -->
 		<!-- select多的列表查询调用哪一个select标签 column以哪一列作为参数传进去 -->
-		<collection property="userList" ofType="AdminUserModel"
+		<collection property="userList" ofType="com.javasm.user.model.AdminUserModel"
 		select="com.javasm.user.dao.IUserDAO.selectUserListByRid"
 		column="rid">
 		</collection>
+		
+		<!-- 多对多 用户和菜单-->
+		<collection property="menuList" ofType="com.javasm.user.model.AdminMenuModel"
+		select="com.javasm.user.dao.IMenuDAO.selectMenuListByRid" column="rid">
+		</collection>
 	</resultMap>
 	
-	<!-- 无传参 返回类型是一个role对象-->
+	<!-- 无传参 返回类型是一个role对象  之前的方式一对多-->
 	<select id="selectAdminRoleWitcUser" resultMap="roleResultMap">
 		select * from t_admin_role
 	</select>
 	
+	<!-- mybatis方式一对多-->
+	<!-- mybatis方式一对多和多对多没什么区别 只在sql里面有体现 体现在多对多有一个中间表-->
 	 <select id="selectUserListMybatis" resultMap="roleManyResultType"> 
 		select * from t_admin_role
 	</select>
