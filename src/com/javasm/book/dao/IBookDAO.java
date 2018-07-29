@@ -15,4 +15,5 @@ public interface IBookDAO {
    void insertBookModel(BookModel book);
    void deleteBookModel(long id);
    void updateBookModel(BookModel book);
+   List<BookModel> selectBookListByBidList(List<Long> bidlist);
 }

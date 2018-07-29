@@ -26,17 +26,17 @@ public class MybatisTest {
 	
 	//测试mapper来写sql的增删改查
 	public static void test02(){
-		List<BookModel> bookList=bookService.selectBookList();
-		System.out.println("----------"+bookList);
+		/*List<BookModel> bookList=bookService.selectBookList();
+		System.out.println("----------"+bookList);*/
 		BookModel book=new BookModel();
 		book.setBookId(555550001);
 		book.setBookName("PHP基础");
 		book.setBid(1001053);
 		bookService.updateBookModel(book);
-		System.out.println("----------");
+		/*System.out.println("----------");
 		bookService.deleteBookModel(1001003);
 		System.out.println("----------");
-		bookService.insertBookModel(book);;
+		bookService.insertBookModel(book);*/
 		
 		
 	}

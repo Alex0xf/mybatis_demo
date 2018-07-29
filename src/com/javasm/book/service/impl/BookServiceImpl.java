@@ -54,4 +54,10 @@ public class BookServiceImpl implements IBookService {
 
 	}
 
+	@Override
+	public List<BookModel> selectBookListByBidList(List<Long> bidlist) {
+		//判断参数合法性
+		return bookDao.selectBookListByBidList(bidlist);
+	}
+
 }

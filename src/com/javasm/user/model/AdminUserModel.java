@@ -10,7 +10,7 @@ public class AdminUserModel {
 	private int uid;
 	private String name;
 	private String password;
-	private int rid;
+	private Integer rid;
 	
 	@Override
 	public String toString() {
@@ -37,7 +37,7 @@ public class AdminUserModel {
 	public int getRid() {
 		return rid;
 	}
-	public void setRid(int rid) {
+	public void setRid(Integer rid) {
 		this.rid = rid;
 	}
 	

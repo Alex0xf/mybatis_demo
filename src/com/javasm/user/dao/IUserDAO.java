@@ -7,6 +7,6 @@ import com.javasm.user.model.AdminUserRoleModel;
 
 public interface IUserDAO {
 	List<AdminUserRoleModel> selectUserListWithRole();
-	List<AdminUserModel> selectUserListByRid(int rid);
+	List<AdminUserModel> selectUserListByRid(Integer rid);
 	
 }

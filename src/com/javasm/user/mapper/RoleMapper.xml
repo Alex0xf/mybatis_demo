@@ -15,8 +15,7 @@
 		<!-- ofType集合泛型的类型 -->
 		<!-- select多的列表查询调用哪一个select标签 column以哪一列作为参数传进去 -->
 		<collection property="userList" ofType="com.javasm.user.model.AdminUserModel"
-		select="com.javasm.user.dao.IUserDAO.selectUserListByRid"
-		column="rid">
+		select="com.javasm.user.dao.IUserDAO.selectUserListByRid" column="rid">
 		</collection>
 		
 		<!-- 多对多 用户和菜单-->

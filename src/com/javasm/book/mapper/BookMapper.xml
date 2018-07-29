@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.javasm.book.dao.IBookDAO">
+	<!-- 开启缓存 -->
+	<cache eviction="FIFO" flushInterval="600000" size="512" readOnly="true"></cache>
 	<resultMap type="com.javasm.book.model.BookModel" id="bookResultMap">
 		<!-- column对应的是 查询结果集的列名 -->
 		<!-- property 对应的是model属性名 -->
@@ -10,9 +12,14 @@
 		<result property="readCount" column="read_count"/>
 	</resultMap>
 	
+	<sql id="selectbook_sql">
+		select * from pn_book
+	</sql>
+	
 	<!-- selectBookList没有传参所以不写 参数类型parameterType ResultMap和ResultType不能共存-->
 	<select id="selectBookList" resultMap="bookResultMap">
-		select * from pn_book order by bid desc limit 5 
+		 <include refid="selectbook_sql"/>
+		 order by bid desc limit 5 
 	</select>
 	
 	<!-- 插入一条记录 无返回值类型不写ResultType  -->
@@ -27,7 +34,24 @@
 	
 	<!-- 修改一条记录 -->
 	<update id="updateBookModel" parameterType="com.javasm.book.model.BookModel">
-		update pn_book set book_id=#{bookId}, book_name=#{bookName} where bid = #{bid}
+		update pn_book 
+		<set>
+			<if test="bookId !=null">
+				book_id=#{bookId},
+			</if>
+			<if test="bookName !=null">
+				book_name=#{bookName},
+			</if>
+		</set>
+		where bid = #{bid}
 	</update>
 
+	<select id="selectBookListByBidList" resultMap="bookResultMap" useCache="true">
+		<include refid="selectbook_sql"/>
+		 WHERE bid IN
+		<!-- (1001001,1001004,1001005) 如果list泛型是Model 可以用#{bid.id}z-->
+		<foreach collection="list" index="i" item="bid" open="(" close=")" separator=",">
+			#{bid}
+		</foreach>
+	</select>
 </mapper>

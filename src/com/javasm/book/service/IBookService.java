@@ -18,4 +18,6 @@ public interface IBookService {
 	void deleteBookModel(long id);
 
 	void updateBookModel(BookModel book);
+	//参数是bookid的集合 测试foreach标签
+	List<BookModel> selectBookListByBidList(List<Long> bidlist);
 }

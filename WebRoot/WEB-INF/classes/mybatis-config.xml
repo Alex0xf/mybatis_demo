@@ -6,9 +6,9 @@
 	<!-- 加载配置文件的一些设置 -->
 	<settings>
 	<!-- 默认启用懒（延迟）加载 -->
-	    <!-- 打开延迟加载的开关 -->
+	    <!-- 打开延迟加载（默认打开） -->
         <setting name="lazyLoadingEnabled" value="true"/>
-        <!-- 将积极加载改为消极加载 -->
+        <!-- 将积极加载改为消极加载 需手动 -->
      <!--    <setting name="aggressiveLazyLoading" value="false"/>      -->
 	    <!-- 日志美化 -->
 		<setting name="logImpl" value="STDOUT_LOGGING"/>
